@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/e-tshirts/static/css/main.e6c13ad2.css",
+    "main.js": "/e-tshirts/static/js/main.29a81b21.js",
+    "static/js/453.b8985cb8.chunk.js": "/e-tshirts/static/js/453.b8985cb8.chunk.js",
+    "static/media/girl model T.png": "/e-tshirts/static/media/girl model T.41acdbc7f2c823144c9d.png",
+    "index.html": "/e-tshirts/index.html",
+    "main.e6c13ad2.css.map": "/e-tshirts/static/css/main.e6c13ad2.css.map",
+    "main.29a81b21.js.map": "/e-tshirts/static/js/main.29a81b21.js.map",
+    "453.b8985cb8.chunk.js.map": "/e-tshirts/static/js/453.b8985cb8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.29a81b21.js"
+  ]
+}
