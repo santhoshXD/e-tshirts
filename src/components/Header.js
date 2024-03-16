@@ -565,12 +565,12 @@ export default function Header() {
 
     const handleSearchShirts = (e) => {
         setSearchQuery(e)
-        console.log(e)
+     
     }
 
     const handleClickSearch = () => {
         setClickSearch(true)
-        console.log('search icon is clicked')
+        
     }
 
     const handleClickSearchClose = () => {

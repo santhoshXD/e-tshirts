@@ -184,14 +184,14 @@ export default function LoginPage() {
 
                 <div className="input-login">
                     <FontAwesomeIcon icon={faEnvelope} />
-                    <input type="email" placeholder='username' value={username} onChange={(e) => { setUserName(e.target.value); console.log(e.target.value) }}
+                    <input type="email" placeholder='username' value={username} onChange={(e) => { setUserName(e.target.value)  }}
                     />
                 </div>
 
 
                 <div className="input-login">
                     <FontAwesomeIcon icon={faLock} />
-                    <input type={showpass ? 'text' : 'password'} placeholder='password' value={userPassword} onChange={(e) => { setUserPassword(e.target.value); console.log(e.target.value) } } onKeyPress={handleKeyPress} />
+                    <input type={showpass ? 'text' : 'password'} placeholder='password' value={userPassword} onChange={(e) => { setUserPassword(e.target.value)  } } onKeyPress={handleKeyPress} />
                     <FontAwesomeIcon className='pass-icon' onClick={ShowPassWord} icon={showpass ? faEye : faEyeSlash} />
                 </div>
 

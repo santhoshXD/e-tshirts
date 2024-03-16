@@ -159,7 +159,7 @@ function Contact() {
 
   const handleSubmitForm = (e) =>{
     e.preventDefault()
-    console.log(formData)
+ 
     alert('Your message has been sent')
     setFormData({
       firstname :'',
