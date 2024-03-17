@@ -243,36 +243,36 @@ const BuyTshirts = () => {
 
    
 
-    <ShopResults>
-    {shop.map((shirt, index) => (
+       <ShopResults>
+  {shop.map((shirt, index) => ( // Added index parameter to map function
       
-      <div key={index} style={{ background: 'whitesmoke',  cursor: 'pointer' }} >
-          <StyledNavigateLink key={index} to={`/shop/product/${shirt.id}`} >
-          <img className='shop-tshirt-img'  src={process.env.PUBLIC_URL + '/' + shirt.shirtImage} alt={shirt.id} />
-          <p  className='shop-tshirt-gender'>{shirt.gender}</p>
-          <h4 className='shop-tshirt-name'>{shirt.shirt}</h4>
-          <p className='shop-tshirt-price'>{shirt.price}</p>
-            </StyledNavigateLink>
-          <div className="shop-tshirt-color">
-            {shirt.colors.map((color, colorIndex) => (
-              <div
-                key={colorIndex}
-                className="shop-color-option"
-                style={{ backgroundColor: color }}
-                />
-            ))}
-          </div>
-          <StyledNavigateLink key={index} to={`/shop/product/${shirt.id}`} >
-          <div className="shop-tshirt-size">
-            {shirt.size.map((size, sizeIndex) => (
-              <button key={sizeIndex}>{size}</button>
-              ))}
-          </div>
+    <div key={shirt.id} style={{ background: 'whitesmoke',  cursor: 'pointer' }} >
+        <StyledNavigateLink to={`/shop/product/${shirt.id}`} > {/* Removed key from StyledNavigateLink */}
+        <img className='shop-tshirt-img'  src={process.env.PUBLIC_URL + '/' + shirt.shirtImage} alt={shirt.id} />
+        <p  className='shop-tshirt-gender'>{shirt.gender}</p>
+        <h4 className='shop-tshirt-name'>{shirt.shirt}</h4>
+        <p className='shop-tshirt-price'>{shirt.price}</p>
           </StyledNavigateLink>
+        <div className="shop-tshirt-color">
+          {shirt.colors.map((color, colorIndex) => (
+            <div
+              key={colorIndex} // Changed key to colorIndex
+              className="shop-color-option"
+              style={{ backgroundColor: color }}
+              />
+          ))}
         </div>
-      ))}
+        <StyledNavigateLink to={`/shop/product/${shirt.id}`} > {/* Removed key from StyledNavigateLink */}
+        <div className="shop-tshirt-size">
+          {shirt.size.map((size, sizeIndex) => (
+            <button key={sizeIndex}>{size}</button>
+            ))}
+        </div>
+        </StyledNavigateLink>
+      </div>
+  ))}
+</ShopResults>
 
-    </ShopResults>
 
     <NoMoreShop>
        <div className="no-more-shop">

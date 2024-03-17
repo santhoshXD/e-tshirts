@@ -240,7 +240,7 @@ height: 3rem;
 const CartMenu = styled.div`
 position: absolute;
 top: 0;
-  right: ${props => props.isCartOpen ? '0' : '-300px'};
+  right: ${props => props.cartopen ? '0' : '-300px'};
   background: white;
   width: 25vw;
   height: 100vh;
@@ -525,7 +525,7 @@ export default function Header() {
 
 
 
-    const [isCartOpen, setIsCartOpen] = useState(false)
+    const [iscartopen, setIsCartOpen] = useState(false)
 
     const openCart = () => {
         setIsCartOpen(true)
@@ -635,48 +635,48 @@ export default function Header() {
 
 
             {
-                isCartOpen &&
+    iscartopen &&
 
-                <CartMenu isCartOpen={isCartOpen}>
-                    <div className="title-cart">
+    <CartMenu cartopen="true">
+        <div className="title-cart">
 
-                        <div>shopping cart</div>
-                        <FontAwesomeIcon style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={closeCart} icon={faClose} />
-                    </div>
-                    <hr />
-
-
-                    <div className="cart-items">
-                        {cart.length === 0 ? (
-                            <div className='no-products-found'>No Products in the cart</div>
-                        ) : (
-                            cart.map((item, index) => (
-                                <StyledNavigateLink2 key={index} to={`/shop/product/${item.id}`} >
-                                    
-
-                                            <div key={index}>
-                                                <img src={process.env.PUBLIC_URL + '/' + item.shirtImage} alt={item.shirt} />
-                                                <div className='cart-shirt-price'>
-                                                    <p>{item.shirt}</p>
-                                                    <p>{item.price}</p>
-                                                </div>
-
-                                            </div>
-                                    
-                                </StyledNavigateLink2>
-
-                            ))
-                        )}
-                    </div>
+            <div>shopping cart</div>
+            <FontAwesomeIcon style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={closeCart} icon={faClose} />
+        </div>
+        <hr />
 
 
+        <div className="cart-items">
+            {cart.length === 0 ? (
+                <div className='no-products-found'>No Products in the cart</div>
+            ) : (
+                cart.map((item, index) => (
+                    <StyledNavigateLink2 key={index} to={`/shop/product/${item.id}`} >
 
-                    <div className="cart-shopping">
-                        <StyledNavigateLink to={'/shop'} >Continue Shopping </StyledNavigateLink>
-                    </div>
-                </CartMenu>
 
-            }
+                        <div key={index}>
+                            <img src={process.env.PUBLIC_URL + '/' + item.shirtImage} alt={item.shirt} />
+                            <div className='cart-shirt-price'>
+                                <p>{item.shirt}</p>
+                                <p>{item.price}</p>
+                            </div>
+
+                        </div>
+
+                    </StyledNavigateLink2>
+
+                ))
+            )}
+        </div>
+
+
+
+        <div className="cart-shopping">
+            <StyledNavigateLink to={'/shop'} >Continue Shopping </StyledNavigateLink>
+        </div>
+    </CartMenu>
+}
+
 
             {isOpen &&
 

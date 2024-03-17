@@ -704,11 +704,12 @@ export default function HomePage() {
   };
 
 
-  const Navigate = useNavigate()
+  const navigate = useNavigate();
+  
 
-  const ClickToShop = () =>{
-     Navigate('/shop')
-  }
+    const handleNavigate = () => {
+        navigate('/shop');
+    };
 
   const PopularShirtsDisplay = Allshirts.filter(items => items.category === 'popular')
   const OnShirtsDisplay = Allshirts.filter(items => items.category === 'onsale')
@@ -724,7 +725,7 @@ export default function HomePage() {
           <p>WOMEN</p>
           <h3>Sleek. Contemporary.</h3>
           <h3>Incredible.</h3>
-          <button onClick={ClickToShop}>Shop Collection</button>
+          <button onClick={handleNavigate}>Shop Collection</button>
         </div>
 
 
@@ -735,58 +736,56 @@ export default function HomePage() {
       </Background>
 
       <PopularTshirts>
-        <div className="title-popularshirt">
-          <p className='popular-tshirt-sc'>summer collection</p>
-          <h3>Popular T-Shirts</h3>
-        </div>
+  <div className="title-popularshirt">
+    <p className='popular-tshirt-sc'>summer collection</p>
+    <h3>Popular T-Shirts</h3>
+  </div>
 
-        <div className="popular-tshirts">
-          {
-            PopularShirtsDisplay.map((shirts, index) => (
-              <div key={index} style={{background:'whitesmoke',cursor:'pointer'}}>
-                 <StyledNavigateLink key={index} to={`/shop/product/${shirts.id}`} >
+  <div className="popular-tshirts">
+    {
+      PopularShirtsDisplay.map((shirts) => (
+        <div key={shirts.id} style={{background:'whitesmoke',cursor:'pointer'}}>
+          <StyledNavigateLink to={`/shop/product/${shirts.id}`}>
 
-                <img className='popular-tshirt-img' src={process.env.PUBLIC_URL + '/' + shirts.shirtImage} alt={shirts.id} />
-                <p className='popular-tshirt-gender'>{shirts.gender}</p>
-                <h4 className='popular-tshirt-name'>{shirts.shirt}</h4>
-                <p className='popular-tshirt-price'>{shirts.price}</p>
-                <div className="popular-tshirt-color">  
-                {shirts.colors.map((color, index) => (
-                  <div
-                  key={index}
+            <img className='popular-tshirt-img' src={process.env.PUBLIC_URL + '/' + shirts.shirtImage} alt={shirts.id} />
+            <p className='popular-tshirt-gender'>{shirts.gender}</p>
+            <h4 className='popular-tshirt-name'>{shirts.shirt}</h4>
+            <p className='popular-tshirt-price'>{shirts.price}</p>
+            <div className="popular-tshirt-color">  
+              {shirts.colors.map((color, index) => (
+                <div
+                  key={`${shirts.id}-color-${index}`}  
                   className="color-option"
                   style={{ backgroundColor: color }}
-                  />
-                  ))}
-              </div>
-              <div className="popular-tshirt-size">
-          {shirts.size.map((size, index) => (
-            <button  key={index}>{size}</button>
-            ))}
+                />
+              ))}
+            </div>
+            <div className="popular-tshirt-size">
+              {shirts.size.map((size, index) => (
+                <button key={`${shirts.id}-size-${index}`}>{size}</button> // Ensure unique key
+              ))}
+            </div>
+          </StyledNavigateLink>
         </div>
-            </StyledNavigateLink>
-              </div>
-            ))
-          }
-        </div>
-      </PopularTshirts>
-
-      <ShowPage>
-        
-         <div className="showtshirt1">
-            <img className=' Page3Tshirt1' src={process.env.PUBLIC_URL + '/Page3Tshirt1.avif'} alt="Page3Tshirt1" />
-            <p style={{color:"grey" ,fontWeight:'500',paddingTop:'1rem'}}>MEN  WOMEN</p>
-            <p style={{fontSize:'1.5rem',fontWeight:'200'}} >Fashion is what you buy, style is what you do with it.</p>
-            <button onClick={ClickToShop} >Shop Now</button>
-         </div>
+      ))
+    }
+  </div>
+</PopularTshirts>
 
 
-         <div className="showtshirt2">
-             <img className=' Page3Tshirt2' src={process.env.PUBLIC_URL + '/Page3Tshirt2.avif'} alt="Page3Tshirt2" />
-            <p style={{fontSize:'1.5rem',fontWeight:'200',height:'40%'}}>"Explore the intersection of elegance and innovation. Discover timeless pieces that reflect your individuality."</p>
-         </div>
+<ShowPage>
+    <div className="showtshirt1" key="showtshirt1">
+        <img className=' Page3Tshirt1' src={process.env.PUBLIC_URL + '/Page3Tshirt1.avif'} alt="Page3Tshirt1" />
+        <p style={{ color: "grey", fontWeight: '500', paddingTop: '1rem' }}>MEN  WOMEN</p>
+        <p style={{ fontSize: '1.5rem', fontWeight: '200' }}>Fashion is what you buy, style is what you do with it.</p>
+        <button onClick={handleNavigate} key="shopNowButton1">Shop Now</button>
+    </div>
 
-      </ShowPage>
+    <div className="showtshirt2" key="showtshirt2">
+        <img className=' Page3Tshirt2' src={process.env.PUBLIC_URL + '/Page3Tshirt2.avif'} alt="Page3Tshirt2" />
+        <p style={{ fontSize: '1.5rem', fontWeight: '200', height: '40%' }}>Explore the intersection of elegance and innovation. Discover timeless pieces that reflect your individuality.</p>
+    </div>
+</ShowPage>
 
       <NewCollection>
 
@@ -794,7 +793,7 @@ export default function HomePage() {
           <p>new collection</p>
           <h4>be different in your own way!</h4>
           <h5>find your unique style.</h5>
-          <button onClick={ClickToShop}>Shop Collection</button>
+          <button onClick={handleNavigate}>Shop Collection</button>
         </div>
 
 
@@ -810,7 +809,7 @@ export default function HomePage() {
          <p style={{fontWeight:'600'}}>WOMEN</p>
           <h3 style={{textTransform:'capitalize'}}>Spring Summer Collection</h3>
           <h6 style={{fontWeight:'300'}} >Discover a vibrant array of styles that embrace the essence of femininity and grace. From flowing dresses to chic separates, our collection celebrates the spirit of the season with effortless elegance and timeless sophistication. Explore now and elevate your wardrobe with pieces that inspire confidence and radiate beauty.</h6>
-          <button onClick={ClickToShop}>See Whole Collection</button>
+          <button onClick={handleNavigate}>See Whole Collection</button>
          </div>
 
       </SummerBanner>

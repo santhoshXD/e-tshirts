@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { useCart } from '../App';
- 
+
 
 
 const Wrapper = styled.div`
@@ -265,12 +265,12 @@ const ProductDetails = () => {
 
   const [count, setCount] = useState(0)
 
- const {addToCart} = useCart()
+  const { addToCart } = useCart()
 
   const { id } = useParams();
 
   const product = shop.find((item) => item.id === parseInt(id));
-  
+
 
   const getCategoryMenWomen = (gender) => {
     if (gender.toLowerCase() === 'men') {
@@ -280,13 +280,13 @@ const ProductDetails = () => {
     }
   };
 
- 
 
 
-  const[selectedImage, setSelectedImage] = useState(product.shirtImage)
- 
-   
-  const handleAddToCart = () =>{
+
+  const [selectedImage, setSelectedImage] = useState(product.shirtImage)
+
+
+  const handleAddToCart = () => {
     addToCart(product)
     alert("Item added to cart, Please check it in Cart!");
   }
@@ -297,20 +297,20 @@ const ProductDetails = () => {
 
       <Description>
         <div className="description-img">
-          <div main-product >
+          <div className='main-product' >
 
-          <img src={process.env.PUBLIC_URL + '/' + selectedImage} alt={product.shirt} />
+            <img src={process.env.PUBLIC_URL + '/' + selectedImage} alt={product.shirt} />
           </div>
 
           <div className='extra-images'>
-             {
-              product.extraImages.map((image,index) =>(
-                <img key={index} src={process.env.PUBLIC_URL + '/' + image}  style={{
-                  border: selectedImage === image ? '2px solid orange' : 'none' 
-                }}  onClick={() => setSelectedImage(image)} alt='' />
+            {
+              product.extraImages.map((image, index) => (
+                <img key={index} src={process.env.PUBLIC_URL + '/' + image} style={{
+                  border: selectedImage === image ? '2px solid orange' : 'none'
+                }} onClick={() => setSelectedImage(image)} alt='' />
               ))
-             }
-             <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora veritatis nostrum ducimus ut earum magni alias unde quis dolorem adipisci obcaecati vero blanditiis architecto quod nobis aperiam, inventore eaque sed.</div>
+            }
+            <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora veritatis nostrum ducimus ut earum magni alias unde quis dolorem adipisci obcaecati vero blanditiis architecto quod nobis aperiam, inventore eaque sed.</div>
           </div>
 
 
@@ -378,31 +378,31 @@ const ProductDetails = () => {
             <div className="AdditionalInformation">
               <h5>Additional Information</h5>
               <table className="additional-info-table">
-    <thead>
-      <tr>
-        <th>Colors</th>
-        <th>Size</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <ul className="color-list">
-            {product.colors.map((product, index) => (
-              <li key={index}>{product}</li>
-            ))}
-          </ul>
-        </td>
-        <td>
-          <ul className="size-list">
-            {product.size.map((product, index) => (
-              <li key={index}>{product}</li>
-            ))}
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+                <thead>
+                  <tr>
+                    <th>Colors</th>
+                    <th>Size</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <ul className="color-list">
+                        {product.colors.map((product, index) => (
+                          <li key={index}>{product}</li>
+                        ))}
+                      </ul>
+                    </td>
+                    <td>
+                      <ul className="size-list">
+                        {product.size.map((product, index) => (
+                          <li key={index}>{product}</li>
+                        ))}
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -411,7 +411,7 @@ const ProductDetails = () => {
 
 
 
-     <Footer/>
+      <Footer />
     </Wrapper>
   );
 };
