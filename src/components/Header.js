@@ -176,7 +176,12 @@ position: relative;
     img{
         width: 100px;
         height: auto;
+        @media screen and (max-width: 768px){
+            display: none;
+        }
     }
+
+
 
 }
 
@@ -188,7 +193,7 @@ position: relative;
 
 
 const MobileMenu = styled.div`
-   width: 80%;
+   width: 100%;
   height: 90vh;
   position: absolute;
   top: 10vh;
@@ -231,9 +236,22 @@ height: 3rem;
 
   }
 
+
+   .mobile-brand{
+    img{
+        width: 100%;
+        height: auto;
+    }
+   }
+
+
    @media screen and (min-width:1285px){
             display: none;
         }
+
+
+        
+         
 
 `
 
@@ -682,9 +700,6 @@ export default function Header() {
 
                 <MobileMenu isOpen={isOpen}>
 
-
-
-
                     <div className="mobile-menu-items">
                         {
                             mobilemenu1.map((items, index) => (
@@ -692,6 +707,11 @@ export default function Header() {
                             ))
                         }
                     </div>
+
+
+                    <div className="mobile-brand">
+                <img  src={process.env.PUBLIC_URL + '/logo.png'} alt="Logo" />
+                 </div>
 
                 </MobileMenu>
             }

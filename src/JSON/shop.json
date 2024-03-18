@@ -452,11 +452,11 @@
         "id": 11,
         "gender": "female",
         "shirt": "Stylish Pale Yellow",
-        "shirtImage": "shirt11E1.avif",
+        "shirtImage": "Shirt11E2.jpg",
         "extraImages":[
+            "shirt11E2.jpg",
             "shirt11E1.avif",
-            "shirt11.avif",
-            "shirt11E2.jpg"
+            "shirt11.jpg"
         ],
         "price": "$36.00 - $39.00",
         "colors": [
