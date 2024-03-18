@@ -3,11 +3,11 @@
         "id": 1,
         "gender": "male",
         "shirt": "Casual Cool Black",
-        "shirtImage": "shirt1.webp",
+        "shirtImage": "Shirt1.webp",
         "extraImages":[
-            "shirt1.webp",
-            "shirt1E1.webp",
-            "shirt1E2.avif"
+            "Shirt1.webp",
+            "Shirt1E1.webp",
+            "Shirt1E2.avif"
         ],
         "price": "$33.00 - $36.00",
         
@@ -454,9 +454,9 @@
         "shirt": "Stylish Pale Yellow",
         "shirtImage": "Shirt11E2.jpg",
         "extraImages":[
-            "shirt11E2.jpg",
-            "shirt11E1.avif",
-            "shirt11.jpg"
+            "Shirt11E2.jpg",
+            "Shirt11E1.avif",
+            "Shirt11.jpg"
         ],
         "price": "$36.00 - $39.00",
         "colors": [
