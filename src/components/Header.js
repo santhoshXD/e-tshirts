@@ -6,7 +6,7 @@ import { faBars, faCartShopping, faClose, faSearch, faSignOut } from '@fortaweso
 import { Link, useNavigate } from 'react-router-dom'
 import shirts from '../JSON/shop.json'
 import { useCart } from '../App'
- 
+
 
 
 
@@ -500,8 +500,8 @@ color: black;
 export default function Header() {
 
 
-    const {cart} = useCart()
-     
+    const { cart } = useCart()
+
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -529,7 +529,7 @@ export default function Header() {
 
     const openCart = () => {
         setIsCartOpen(true)
-         
+
     }
 
     const closeCart = () => {
@@ -565,12 +565,12 @@ export default function Header() {
 
     const handleSearchShirts = (e) => {
         setSearchQuery(e)
-     
+
     }
 
     const handleClickSearch = () => {
         setClickSearch(true)
-        
+
     }
 
     const handleClickSearchClose = () => {
@@ -605,7 +605,7 @@ export default function Header() {
                 {
                     menu2.map((items, index) => (
 
-                        <FontAwesomeIcon key={index} className={items.id === 1 ? 'search-icon' : 'cart-icon'} icon={items.id === 1 ? faSearch : faCartShopping} 
+                        <FontAwesomeIcon key={index} className={items.id === 1 ? 'search-icon' : 'cart-icon'} icon={items.id === 1 ? faSearch : faCartShopping}
                             onClick={() => {
                                 if (items.id === 2) {
                                     openCart();
@@ -617,8 +617,8 @@ export default function Header() {
 
                     ))
                 }
-            
-                
+
+
                 {
                     loggedIn ? (
                         <div onClick={handleProfileSelect} className='profile-log' >
@@ -635,47 +635,47 @@ export default function Header() {
 
 
             {
-    iscartopen &&
+                iscartopen &&
 
-    <CartMenu cartopen="true">
-        <div className="title-cart">
+                <CartMenu cartopen="true">
+                    <div className="title-cart">
 
-            <div>shopping cart</div>
-            <FontAwesomeIcon style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={closeCart} icon={faClose} />
-        </div>
-        <hr />
-
-
-        <div className="cart-items">
-            {cart.length === 0 ? (
-                <div className='no-products-found'>No Products in the cart</div>
-            ) : (
-                cart.map((item, index) => (
-                    <StyledNavigateLink2 key={index} to={`/shop/product/${item.id}`} >
+                        <div>shopping cart</div>
+                        <FontAwesomeIcon style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={closeCart} icon={faClose} />
+                    </div>
+                    <hr />
 
 
-                        <div key={index}>
-                            <img src={process.env.PUBLIC_URL + '/' + item.shirtImage} alt={item.shirt} />
-                            <div className='cart-shirt-price'>
-                                <p>{item.shirt}</p>
-                                <p>{item.price}</p>
-                            </div>
-
-                        </div>
-
-                    </StyledNavigateLink2>
-
-                ))
-            )}
-        </div>
+                    <div className="cart-items">
+                        {cart.length === 0 ? (
+                            <div className='no-products-found'>No Products in the cart</div>
+                        ) : (
+                            cart.map((item, index) => (
+                                <StyledNavigateLink2 key={index} to={`/shop/product/${item.id}`} >
 
 
+                                    <div key={index}>
+                                        <img src={process.env.PUBLIC_URL + '/' + item.shirtImage} alt={item.shirt} />
+                                        <div className='cart-shirt-price'>
+                                            <p>{item.shirt}</p>
+                                            <p>{item.price}</p>
+                                        </div>
 
-        <div className="cart-shopping">
-            <StyledNavigateLink to={'/shop'} >Continue Shopping </StyledNavigateLink>
-        </div>
-    </CartMenu>
-}
+                                    </div>
+
+                                </StyledNavigateLink2>
+
+                            ))
+                        )}
+                    </div>
+
+
+
+                    <div className="cart-shopping">
+                        <StyledNavigateLink to={'/shop'} >Continue Shopping </StyledNavigateLink>
+                    </div>
+                </CartMenu>
+            }
 
 
             {isOpen &&
@@ -699,7 +699,7 @@ export default function Header() {
             {
                 profileSelect &&
 
-                <ProfileMenu  onClick={LinkToLoginPage}>
+                <ProfileMenu onClick={LinkToLoginPage}>
 
                     <div className='logout-profile' >LOGOUT</div>
                     <div>
