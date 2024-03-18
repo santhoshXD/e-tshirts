@@ -3,11 +3,11 @@
         "id": 1,
         "gender": "male",
         "shirt": "Casual Cool Black",
-        "shirtImage": "shirt1E2.jpeg",
+        "shirtImage": "shirt1.webp",
         "extraImages":[
-            "shirt1E2.jpeg",
-            "shirt1E1.jpeg",
-            "shirt1.jpeg"
+            "shirt1.webp",
+            "shirt1E1.webp",
+            "shirt1E2.avif"
         ],
         "price": "$33.00 - $36.00",
         
