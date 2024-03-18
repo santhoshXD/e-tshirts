@@ -208,6 +208,18 @@ const MobileMenu = styled.div`
   transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
  
 
+  .mobile-brand{
+  width: 100%;
+  height: auto;
+text-align: center;
+      
+      img{
+          width: 100px;
+          height: 100px;
+        }
+        
+    }
+
         
 `
 
@@ -237,17 +249,7 @@ height: 3rem;
   }
 
 
-   .mobile-brand{
-    img{
-        width: 100%;
-        height: auto;
-    }
-   }
-
-
-   @media screen and (min-width:1285px){
-            display: none;
-        }
+ 
 
 
         
@@ -710,7 +712,8 @@ export default function Header() {
 
 
                     <div className="mobile-brand">
-                <img  src={process.env.PUBLIC_URL + '/logo.png'} alt="Logo" />
+                        
+                    <img  src={process.env.PUBLIC_URL + '/logo.png'} alt="Logo" />
                  </div>
 
                 </MobileMenu>
