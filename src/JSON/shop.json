@@ -455,7 +455,7 @@
         "shirtImage": "shirt11E1.avif",
         "extraImages":[
             "shirt11E1.avif",
-            "shirt11.jpg",
+            "shirt11.avif",
             "shirt11E2.jpg"
         ],
         "price": "$36.00 - $39.00",
@@ -471,7 +471,7 @@
             "XL"
         ],
         "category": "popular",
-        "description": "Exude city swagger with our chic grey t-shirt. Effortlessly cool for navigating urban streets.",
+        "description": "Exude city swagger with our pale yellow t-shirt. Effortlessly cool for navigating urban streets.",
         "shipping": "free shipping",
         "gcategory": "women",
         "productDescription": "Our T-Shirts are lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
