@@ -547,14 +547,9 @@ export default function Header() {
 
     const [iscartopen, setIsCartOpen] = useState(false)
 
-    const openCart = () => {
-        setIsCartOpen(true)
-
-    }
-
-    const closeCart = () => {
-        setIsCartOpen(false)
-    }
+    const toggleCart = () => {
+        setIsCartOpen(!iscartopen);
+      };
 
 
     const [loggedIn, setLoggedIn] = useState(false)
@@ -628,7 +623,7 @@ export default function Header() {
                         <FontAwesomeIcon key={index} className={items.id === 1 ? 'search-icon' : 'cart-icon'} icon={items.id === 1 ? faSearch : faCartShopping}
                             onClick={() => {
                                 if (items.id === 2) {
-                                    openCart();
+                                    toggleCart();
                                 } else if (items.id === 1) {
                                     handleClickSearch();
                                 }
@@ -655,12 +650,12 @@ export default function Header() {
 
 
             
-
+            {iscartopen ? (
                 <CartMenu cartopen={iscartopen}>
                     <div className="title-cart">
 
                         <div>shopping cart</div>
-                        <FontAwesomeIcon style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={closeCart} icon={faClose} />
+                        <FontAwesomeIcon style={{ cursor: 'pointer', fontSize: '1.5rem' }} onClick={toggleCart} icon={faClose} />
                     </div>
                     <hr />
 
@@ -694,7 +689,7 @@ export default function Header() {
                         <StyledNavigateLink to={'/shop'} >Continue Shopping </StyledNavigateLink>
                     </div>
                 </CartMenu>
-            
+                ) : null}
 
 
             
