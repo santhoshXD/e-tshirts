@@ -193,19 +193,18 @@ position: relative;
 
 
 const MobileMenu = styled.div`
-   width: 100%;
+  width: 100%;
   height: 90vh;
   position: absolute;
   top: 10vh;
-  left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
+  left: ${({ isOpen }) => (isOpen ? '0' : '-200%')};
   transition: all 0.3s ease;
   z-index: 999;
   background: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease-in-out;
-  transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
+  transition: all 0.3s ease;
  
 
   .mobile-brand{
@@ -259,13 +258,14 @@ height: 3rem;
 
 const CartMenu = styled.div`
 position: absolute;
-top: 0;
-  right: ${props => props.cartopen ? '0' : '-300px'};
+  top: 0;
+  right: ${({ cartopen }) => (cartopen ? '0' : '-100%')};
   background: white;
   width: 25vw;
   height: 100vh;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   border-left: 2px solid lightgray;
+  transform: ${({ cartopen }) => (cartopen ? 'translateX(0)' : 'translateX(100%)')};
  
   
 
@@ -654,10 +654,9 @@ export default function Header() {
             </div>
 
 
-            {
-                iscartopen &&
+            
 
-                <CartMenu cartopen="true">
+                <CartMenu cartopen={iscartopen}>
                     <div className="title-cart">
 
                         <div>shopping cart</div>
@@ -695,10 +694,10 @@ export default function Header() {
                         <StyledNavigateLink to={'/shop'} >Continue Shopping </StyledNavigateLink>
                     </div>
                 </CartMenu>
-            }
+            
 
 
-            {isOpen &&
+            
 
                 <MobileMenu isOpen={isOpen}>
 
@@ -717,8 +716,7 @@ export default function Header() {
                  </div>
 
                 </MobileMenu>
-            }
-
+            
             {
                 profileSelect &&
 
